@@ -28,19 +28,24 @@
 
     <idea-version since-build="212.0"/>
 
+    <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.intellij.scala</depends>
     <depends>com.intellij.properties</depends>
 
     <!--    <resource-bundle>messages.SamplePluginBundle</resource-bundle>-->
     <!--    TODO: Extract static ctrings to the bundle-->
 
     <extensionPoints>
+        <extensionPoint qualifiedName="org.intellij.scala.TypeSearchContributor" interface="org.jetbrains.plugins.typeSearch.TypeSearchContributor" dynamic="true"/>
     </extensionPoints>
 
     <extensions defaultExtensionNs="org.intellij.scala">
+
     </extensions>
 
     <extensions defaultExtensionNs="com.intellij">
+        <searchEverywhereContributor implementation="org.jetbrains.plugins.typeSearch.TypeSearchContributor$Factory"/>
     </extensions>
 
 </idea-plugin>
