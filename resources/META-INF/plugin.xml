@@ -46,6 +46,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <searchEverywhereContributor implementation="org.jetbrains.plugins.typeSearch.TypeSearchContributor$Factory"/>
+        <applicationService serviceInterface="com.intellij.ide.ui.search.SearchEverywhereTabsCustomization"
+                            serviceImplementation="org.jetbrains.plugins.typeSearch.TypeSearchEverywhereTabsCustomization"/>
     </extensions>
 
 </idea-plugin>

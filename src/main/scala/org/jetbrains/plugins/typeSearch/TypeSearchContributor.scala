@@ -58,9 +58,6 @@ class TypeSearchContributor extends WeightedSearchEverywhereContributor[PsiMetho
 
   override def getSortWeight = 1000
 
-  // default is false
-  override def isShownInSeparateTab: Boolean = true
-
   // default is true
   override def showInFindResults(): Boolean = true
 
