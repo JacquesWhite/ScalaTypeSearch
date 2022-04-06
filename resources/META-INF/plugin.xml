@@ -13,8 +13,8 @@
   ~ limitations under the License.
   -->
 
-<idea-plugin require-restart="true">
-    <id>org.intellij.scalatypesearch</id>
+<idea-plugin>
+    <id>org.jetbrains.plugins.scalatypesearch</id>
     <name>Scala Type Search</name>
     <version>0.0.1</version>
     <vendor url="https://www.jetbrains.com">JetBrains</vendor>
@@ -46,8 +46,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <searchEverywhereContributor implementation="org.jetbrains.plugins.typeSearch.TypeSearchContributor$Factory"/>
-        <applicationService serviceInterface="com.intellij.ide.ui.search.SearchEverywhereTabsCustomization"
-                            serviceImplementation="org.jetbrains.plugins.typeSearch.TypeSearchEverywhereTabsCustomization"/>
+<!--        <applicationService serviceInterface="com.intellij.ide.ui.search.SearchEverywhereTabsCustomization"-->
+<!--                            serviceImplementation="org.jetbrains.plugins.typeSearch.TypeSearchEverywhereTabsCustomization"/>-->
     </extensions>
 
 </idea-plugin>
