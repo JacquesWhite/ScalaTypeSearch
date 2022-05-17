@@ -15,7 +15,6 @@ import org.virtuslab.inkuire.engine.common.service.ScalaExternalSignaturePrettif
 import com.intellij.openapi.application.ApplicationManager
 
 import java.io.File
-import java.lang.System.console
 import javax.swing.ListCellRenderer
 import scala.language.postfixOps
 import scala.concurrent.{Await, Future}
@@ -114,7 +113,7 @@ class TypeSearchContributor extends WeightedSearchEverywhereContributor[PsiMetho
 
   override def fetchWeightedElements(pattern: String, progressIndicator: ProgressIndicator,
                                      consumer: Processor[_ >: FoundItemDescriptor[PsiMethod]]): Unit = {
-    val results = Await.result(inkuireService, Duration.Inf).query("String => Int")
+    val results = Await.result(inkuireService, Duration.Inf).query(pattern)
     for (result <- results) {
       class MyRunnable extends Runnable {
         override def run(): Unit = {
@@ -148,7 +147,7 @@ class TypeSearchContributor extends WeightedSearchEverywhereContributor[PsiMetho
 
   override def fetchElements(pattern: String, progressIndicator: ProgressIndicator, consumer: Processor[_ >: PsiMethod]): Unit = {
 
-    println(3);
+    println(3)
   }
 
   override def isEmptyPatternSupported: Boolean = true
