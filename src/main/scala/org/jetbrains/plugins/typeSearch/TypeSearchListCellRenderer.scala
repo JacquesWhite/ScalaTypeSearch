@@ -1,13 +1,13 @@
 package org.jetbrains.plugins.typeSearch
 
 import com.intellij.ide.util.PsiElementListCellRenderer
-import com.intellij.psi.{PsiMethod, PsiSubstitutor}
+import com.intellij.psi.PsiMethod
 import org.jetbrains.plugins.scala.lang.psi.impl.toplevel.typedef.ScClassImpl
 import org.jetbrains.plugins.scala.lang.psi.light.ScFunctionWrapper
 import org.jetbrains.plugins.scala.lang.psi.types.TypePresentationContext
 
 
-class TypeSearchListCellRenderer extends PsiElementListCellRenderer[PsiMethod] {
+class TypeSearchListCellRenderer() extends PsiElementListCellRenderer[PsiMethod] {
 
   def wrapInBrackets(s: String): String = {
     "(" + s + ")"
@@ -54,7 +54,11 @@ class TypeSearchListCellRenderer extends PsiElementListCellRenderer[PsiMethod] {
     }
   }
 
-  override def getElementText(element: PsiMethod): String = element.getName + renderMethodTypes(element)
+  override def getElementText(element: PsiMethod): String = {
+    val decoder = new OperatorCharacterDecoder()
+
+    decoder.decodeString(element.getName) + renderMethodTypes(element)
+  }
 
   override def getContainerText(element: PsiMethod, name: String): String = {
     try {
