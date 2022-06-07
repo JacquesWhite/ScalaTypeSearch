@@ -1,7 +1,7 @@
 import org.jetbrains.sbtidea.Keys._
 
 ThisBuild / intellijPluginName := "ScalaTypeSearch"
-ThisBuild / intellijBuild      := "221"
+ThisBuild / intellijBuild      := "221.5080.210"
 ThisBuild / intellijPlatform   := IntelliJPlatform.IdeaCommunity
 
 lazy val scalaTypeSearch =
@@ -13,8 +13,11 @@ lazy val scalaTypeSearch =
       Global    / intellijAttachSources := true,
       Compile / javacOptions ++= "--release" :: "11" :: Nil,
       intellijPlugins += "com.intellij.properties".toPlugin,
-      intellijPlugins += "org.intellij.scala:2022.1.2".toPlugin,
+      intellijPlugins += "org.intellij.scala:2022.1.13".toPlugin,
       libraryDependencies += "com.eclipsesource.minimal-json" % "minimal-json" % "0.9.5" withSources(),
+      // https://mvnrepository.com/artifact/org.virtuslab/inkuire-engine
+      libraryDependencies += "org.virtuslab" %% "inkuire-engine" % "1.0.0-M5",
+      libraryDependencies += "org.typelevel" %% "cats-kernel" % "2.3.0",
       unmanagedResourceDirectories in Compile += baseDirectory.value / "resources",
       unmanagedResourceDirectories in Test    += baseDirectory.value / "testResources",
     )

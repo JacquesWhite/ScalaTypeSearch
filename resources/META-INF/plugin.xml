@@ -13,8 +13,8 @@
   ~ limitations under the License.
   -->
 
-<idea-plugin require-restart="true">
-    <id>org.intellij.scalatypesearch</id>
+<idea-plugin>
+    <id>org.jetbrains.plugins.scalatypesearch</id>
     <name>Scala Type Search</name>
     <version>0.0.1</version>
     <vendor url="https://www.jetbrains.com">JetBrains</vendor>
@@ -26,21 +26,28 @@
           ]]>
     </description>
 
-    <idea-version since-build="212.0"/>
+    <idea-version since-build="221.5080.210"/>
 
+    <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.intellij.scala</depends>
     <depends>com.intellij.properties</depends>
 
     <!--    <resource-bundle>messages.SamplePluginBundle</resource-bundle>-->
     <!--    TODO: Extract static ctrings to the bundle-->
 
     <extensionPoints>
+        <extensionPoint qualifiedName="org.intellij.scala.TypeSearchContributor" interface="org.jetbrains.plugins.typeSearch.TypeSearchContributor" dynamic="true"/>
     </extensionPoints>
 
     <extensions defaultExtensionNs="org.intellij.scala">
+
     </extensions>
 
     <extensions defaultExtensionNs="com.intellij">
+        <searchEverywhereContributor implementation="org.jetbrains.plugins.typeSearch.TypeSearchContributor$Factory"/>
+<!--        <applicationService serviceInterface="com.intellij.ide.ui.search.SearchEverywhereTabsCustomization"-->
+<!--                            serviceImplementation="org.jetbrains.plugins.typeSearch.TypeSearchEverywhereTabsCustomization"/>-->
     </extensions>
 
 </idea-plugin>
