@@ -13,10 +13,13 @@ An IntelliJ plugin that allows searching for functions from any library (includi
 5. Select the downloaded file to be installed.
 6. Restart the IDE when prompted.
 7. Navigate to IntelliJ's installation directory.
-8. Navigate to the `plugins/scalaTypeSearch/lib` directory
-9. Insert any database json files to be parsed by the plugin into this directory (they can be generated for each library using scaladoc with the flag `-Ygenerate-inkuire`)
-10. Open a Scala project in IntelliJ.
-11. If the Type Search tab is present when accessing the Search Everywhere window, the plugin is installed correctly.
+8. Navigate to the `plugins/ScalaTypeSearch/lib` directory
+9. Create the `typeSearchDBs` directory and navigate to it.
+10. Insert any database json files to be parsed by the plugin into this directory (they can be generated for each library using scaladoc with the flag `-Ygenerate-inkuire`). The Scala 3 standard library database file is included in the resource folder of this repository.
+11. Open a Scala project in IntelliJ.
+12. If the Type Search tab is present when accessing the Search Everywhere window, the plugin is installed correctly.
+
+Steps 7-10 have to be repeated on each plugin or IDE update.
 
 ## Usage
 
@@ -28,7 +31,7 @@ When inside a Scala project, to use the plugin's functionality you must:
 
 The basic query syntax is as follows:
 
-`ArgType1, ArgType2, ..., ArgTypeN => ReturnType`
+`ArgType1 => ArgType2 => ... => ArgTypeN => ReturnType`
 
 Examples :
 * `Int => String` will yield all functions which take in an integer and return a String.
@@ -36,7 +39,7 @@ Examples :
 
 The syntax detailed above can be extended in the following way:
 
-`ArgType1, ArgType2, ..., ArgTypeN => ReturnType @ Library1, Library2, ...`
+`ArgType1 => ArgType2 => ... => ArgTypeN => ReturnType @ Library1, Library2, ...`
 
 which will limit the search to the libraries, whose names are specified after the `@` sign. For example:
 
@@ -44,7 +47,7 @@ which will limit the search to the libraries, whose names are specified after th
 
 will return functions operating on integers and returning Strings, which are included in the Scala 3 standard library.
 
-##[IntelliJ Platform SDK documentation](https://plugins.jetbrains.com/docs/intellij/welcome.html)
+## [IntelliJ Platform SDK documentation](https://plugins.jetbrains.com/docs/intellij/welcome.html)
 
 ## Browsing IntelliJ platform sources
 
