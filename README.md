@@ -47,6 +47,10 @@ which will limit the search to the libraries, whose names are specified after th
 
 will return functions operating on integers and returning Strings, which are included in the Scala 3 standard library.
 
+## Inkuire
+
+More details about generating database json files as well as the query syntax is available [here](https://docs.scala-lang.org/scala3/guides/scaladoc/search-engine.html).
+
 ## [IntelliJ Platform SDK documentation](https://plugins.jetbrains.com/docs/intellij/welcome.html)
 
 ## Browsing IntelliJ platform sources
