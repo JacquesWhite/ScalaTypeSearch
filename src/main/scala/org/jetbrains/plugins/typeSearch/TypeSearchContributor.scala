@@ -63,7 +63,9 @@ class UserInputParsed(val userInput: String) {
 }
 
 object TypeSearchContributor {
-  val file = new File("./resources")
+  // when running the plugin as a run configuration (during development), change the path below to
+  // "./resources", and put all database json files inside the resources directory.
+  val file = new File("./typeSearchDBs")
   val inkuireService: Future[InkuireService] = Future {
     new InkuireService(file.toURI.toURL.toString)
   }
